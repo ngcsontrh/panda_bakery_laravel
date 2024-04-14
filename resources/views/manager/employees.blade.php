@@ -25,10 +25,15 @@
                         <td>{{$employee->address}}</td>
                         <td>{{$employee->birthday}}</td>
                         <td>{{$employee->gender === 'Male' ? 'Nam' : 'Nữ'}}</td>
-                        <td class="d-inline">
-                            <button class="btn btn-warning">Sửa</button>
-                            <button class="btn btn-danger">Xoá</button>
-                        </td>
+                        <form method="POST" action="{{route('deleteEmployee')}}">
+                            @method('delete')
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{$employee->id}}">
+                            <td class="d-inline">
+                                <a class="btn btn-warning" href="#">Sửa</a>
+                                <button type="submit" class="btn btn-danger">Xoá</button>
+                            </td>
+                        </form>
                     </tr>
                     @endforeach
                 </tbody>
@@ -68,17 +73,19 @@
                 <div class="mb-3">
                 <label class="form-label">Giới tính</label>
                     <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Male">
-                    <label class="form-check-label" for="gender">
-                        Nam
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
-                    <label class="form-check-label" for="gender">
-                        Nữ
-                    </label>
-                    </div>
+                        <label class="form-label">Giới tính</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+                            <label class="form-check-label" for="genderMale">
+                                Nam
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female" required>
+                            <label class="form-check-label" for="genderFemale">
+                                Nữ
+                            </label>
+                        </div>                        
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Thêm</button>
             </form>

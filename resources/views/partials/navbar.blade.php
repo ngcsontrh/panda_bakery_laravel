@@ -14,7 +14,7 @@
           </li>
           @if(Auth::check() &&  Auth::user()->role === 'Customer')
           <li class="nav-item">
-            <a class="nav-link" href="#">Giỏ hàng</a>
+            <a class="nav-link" href="{{route('viewCart')}}">Giỏ hàng</a>
           </li>
           @endif
         </ul>
@@ -24,12 +24,23 @@
                     <a class="nav-link" href="{{route('login')}}">Đăng nhập</a>
                 </li>
             @else
-                <li class="nav-item">
-                  @if (Auth::user()->role === 'Customer')
+            @if (Auth::user()->role === 'Customer')
+                  <li class="nav-item">
                     <a href="/customer/account" class="nav-link">Tài khoản</a>  
+                  </li>
+
                   @elseif (Auth::user()->role === 'Employee')
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Hoá đơn</a>
+                  </li>
+
+                  <li class="nav-item">
                     <a href="/employee/account" class="nav-link">Tài khoản</a>
+                  </li>
+
                   @elseif (Auth::user()->role === 'Manager')
+                  <li class="nav-item">
+
                     <div class="dropdown">
                       <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Quản lý
@@ -40,9 +51,9 @@
                         <li><a class="dropdown-item" href="{{route('viewManageEmployees')}}">Nhân viên</a></li>
                       </ul>
                     </div>
+                  </li>
                   
                   @endif
-                </li>
                 <li class="nav-item">
                   <form action="{{route('logout')}}" method="post">
                     @csrf

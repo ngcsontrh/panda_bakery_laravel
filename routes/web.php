@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware(CheckCustomerRole::class)->prefix('customer')->group(function() {
     Route::get('/account', [CustomerController::class, 'viewAccount'])->name('viewCustomerAccount');
     Route::patch('/account', [CustomerController::class, 'updateAccount'])->name('updateCustomerAccount');
+
+    Route::get('/cart', [CustomerController::class, 'viewCart'])->name('viewCart');
 });
 
 Route::middleware(CheckEmployeeRole::class)->prefix('/employee')->group(function() {
@@ -49,4 +51,5 @@ Route::middleware(CheckManagerRole::class)->prefix('/manager')->group(function()
     
     Route::get('/employees', [ManagerController::class, 'viewManageEmployees'])->name('viewManageEmployees');
     Route::post('/employees', [ManagerController::class, 'addNewEmployee'])->name('addNewEmployee');
+    Route::delete('employees', [ManagerController::class, 'deleteEmployee'])-> name('deleteEmployee');
 });

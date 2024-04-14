@@ -67,7 +67,12 @@ class ManagerController extends Controller
         Employee::create(array_merge($validatedInformation, ['user_id' => $employeeId]));
         session()->flash('success', 'Đã thêm Nhân viên thành công');
         return redirect()->back();
+    }
 
+    public function deleteEmployee(Request $request) {
+        $userId = $request->user_id;
+        User::where('id', $userId)->delete();
+        return redirect()->back();
     }
 
     public function updateAccount(Request $request) {

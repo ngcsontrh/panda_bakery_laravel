@@ -16,6 +16,10 @@ class CustomerController extends Controller
         }
     }
 
+    public function viewCart() {
+        return view('customer/cart');
+    }
+
     public function updateAccount(Request $request) {
         $customer = Customer::find($request->customerId);
         $customer->fullname = $request->fullname;

@@ -26,12 +26,12 @@ class UserSeeder extends Seeder
         User::create([
             'username' => 'customer1',
             'password' => 'customer1',
-            'role' => 'customer'
+            'role' => 'Customer'
         ]);
         User::create([
             'username' => 'manager1',
             'password' => 'manager1',
-            'role' => 'manager'
+            'role' => 'Manager'
         ]);
     }
 }

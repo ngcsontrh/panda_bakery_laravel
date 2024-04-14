@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
             $table->string('fullname');
-            $table->enum('gender', ['Male', 'Female']);
             $table->date('birthday');
+            $table->string('gender');
             $table->string('address');
             $table->string('phone');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

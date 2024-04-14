@@ -23,10 +23,12 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu">
                 <label for="password">Mật khẩu</label>
               </div>
-
-              <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="showPassword" onclick="showOrHideLoginPassword()">
-                <label class="form-check-label" for="showPassword">Hiện mật khẩu</label>
+              <div class="d-flex justify-content-between">
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="showPassword" onclick="showOrHideLoginPassword()">
+                  <label class="form-check-label" for="showPassword">Hiện mật khẩu</label>
+                </div>
+                <a href="#" class="link-offset-2 link-underline link-underline-opacity-0">Quên mật khẩu</a>
               </div>
               <div class="d-grid">
                 <button class="btn btn-primary btn-login text-uppercase" type="submit">Đăng nhập</button>

@@ -17,7 +17,12 @@
           
         <div class="input-group mb-3">
             <span class="input-group-text">Giá bán</span>
-            <input required type="text" class="form-control" name="price">
+            {{-- <input required type="text" class="form-control" name="price"> --}}
+            <select required name="price" class="form-control">
+                <option value="100000">100000</option>
+                <option value="200000">200000</option>
+                <option value="300000">300000</option>
+            </select>
             <span class="input-group-text">đồng</span>
         </div>
         @error('price')
